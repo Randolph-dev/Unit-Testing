@@ -61,4 +61,39 @@ describe('test caes for roll',()=>{
 describe('create a dice with upper bounds 2...20',()=>{
   const testValues=
   new Array(19).fill
-})
+});
+
+describe('Test cases for the toString', ()=>{
+  let dice;
+
+  beforeEach(()=>{
+    dice=new Dice();
+  });
+
+  test('Dice rolled', ()=>{
+    dice.roll();
+    expect(dice.toString()).toBe(`${dice.dots}`);
+  });
+});
+
+describe('test cases for roll version 2', ()=>{
+  describe('create dice with no upper bound given', ()=>{
+    const dice = new Dice();
+
+    for(let i=0; i<60; i++){
+      test('when rolled',()=>{
+        dice.roll();
+        expect(dice.dots).toBeGreaterThanEqual(1);
+        expect(dice.dots).toBeLessThanEqual(6);
+      });
+    };
+    const dotCounts=[];
+    test('dot distribution ok',()=>{
+      for(let i=0; i<10; i++){
+        dice.roll();
+        dotCounts.push(dice.dots);
+      }
+      expect(new Set(dotCounts).size).toBe(6);
+    })
+  });
+});

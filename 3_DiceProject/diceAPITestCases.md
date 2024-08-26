@@ -55,3 +55,12 @@ Expect to return dot count as text. Compare it with dots casted as string.
 
 2. Not rolled
 Expect to return `'not rolled yet'`
+
+
+## test cases for roll version 2
+Roll the dice multipel times (100-1000 rounds?)
+absolute minimum is the upper bound (maybe 10x upperbound would be enough?)
+
+How can we be certain that we get all numbers from 1 to the upper bound?
+
+We'll gather the numbers (in an array) and check that every number exists at least once.
