@@ -57,3 +57,8 @@ describe('test caes for roll',()=>{
     });
   });
 });
+
+describe('create a dice with upper bounds 2...20',()=>{
+  const testValues=
+  new Array(19).fill
+})
