@@ -1,7 +1,9 @@
 # Phone API
 
 ## data
-Data will be in a json file. A person can be in the data array only once. Names are unique so for example Leila Hokki can't exist twice in the json. Phone number is unique and can be only once in the json. We also assume that the json file is valid, and no fields are missing.
+Data will be in a json file. A person can be in the data array only once. Names are unique so for example Leila Hokki can't exist twice in the json. Phone number is unique and can be only once in the json. We also assume that the json file is valid, and no fields are missing, the number can't be an empty string and type or number may be an empty string, or number may not be null or undefined.
+
+Type may be an empty string.
 
 ### phones.json
 
@@ -86,3 +88,31 @@ The format of the returned  object is:
          "number":{"type":"work", "tel":"12345654321"}},
     ]
 ```
+
+### **getAllNumbers()**
+
+Retruns all phone numbers in an array, each as an object of form:
+
+```json
+{"firstname":"", "lastname":"", "phones":[]}
+```
+
+The phone object in forms is of form:
+```json
+{"type":"", "number":""}
+```
+
+If the person doesn't have a phone (the phone field is an empty array), then the person is not added into the result array.
+
+If all persons are missing, an empty array is returned.
+
+### **getName(number)**
+
+The method searches the given phone number from the registry. If the number is found, method returns the owner of that object as a number:
+
+```json
+{"firstname":"", "lastname":""}
+```
+
+If no phone with given number is found, the method returns `null`.
+If the parameter is missing, `null` is also returned.
